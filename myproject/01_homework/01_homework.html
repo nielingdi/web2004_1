@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			i = 1;
+			function leftbtn(){
+				i = i - 1
+				if(i<1){
+					i = 4
+				}
+				image.src="./img/"+i+".png"
+			}
+			function rightbtn(){
+				i = i + 1;
+				if(i>4){
+					i = 1 ;
+				}
+				image.src="./img/"+ i + ".png"
+			}
+		</script>
+		<style type="text/css">
+			*{
+				margin: 0;padding: 0;
+			}
+			a{
+				text-decoration: none;
+			}
+			
+			/* 学子头部样式 */
+			#harder{
+				width: 1000px;height: 50px;
+				margin: 50px auto 50px;
+				display: flex;
+				flex-flow: row nowrap;
+				justify-content: space-between;
+				/* align-items: center; */
+				position: relative;
+				
+			}
+			#harder>div:nth-child(2)>input{
+				width: 409px;height: 34px;
+				position: absolute;
+				border: 1px solid #0AA1ED;
+				left: 165px;
+				margin-left: 50px;
+				background-image: url(img/search.png);
+				background-repeat:no-repeat ;
+				background-position: 100%;
+				/* text-align: center; */
+			}
+			#harder>div:nth-child(3)>ul{
+				width: 218px;height: 37px;
+				display: block;
+				display: flex;
+				list-style: none;
+				justify-content: space-between;
+				font-size: 12px;
+				color: #666666;
+			}
+			#harder>div:nth-child(3)>ul li a{
+				color: #666666;
+			}
+			#harder>div:nth-child(3)>ul li a:hover{
+				color: #0AA1ED;
+			}
+			/* 首页轮播图样式 */
+			#foot_btn{
+				width: 1000px;height: 400px;
+				margin: 0 auto;
+				position: relative;
+				margin-bottom: 10px;
+			}
+			#image{
+				width: 100%;
+			}
+			.left,.right{
+				position: absolute;
+				width: 35px;height: 70px;
+				background-color: rgba(200,200,200,0.15);
+				outline: 0;
+				border: 0;
+				background-image: url(img/arrow-left.png);
+				background-repeat: no-repeat;
+				background-position: 50%;
+				top: 165px;
+				border-radius: 4px;
+				float: left;
+			}
+			.left{left: 5px;}
+			.right{
+				background-image: url(img/arrow-right.png);
+				right: 5px;
+			}
+			.left:hover,.right:hover{
+				background-color: rgba(0,0,0,0.3);
+			}
+			#foot_btn>ul{
+				width: 88px;height: 20px;
+				position: absolute;
+				list-style: none;
+				left: 456px;
+				bottom: 30px;
+			}
+			#foot_btn>ul>li{
+				width: 12px;
+				height: 12px;
+				border-radius: 50%;
+				background-color: #FFFFFF;
+				float: left;
+				margin: 0 5px;
+			}
+			#foot_btn>ul>li:hover{
+				background-color: #0AA1ED;
+			}
+			/* 商品列表样式 */
+			#content{
+				width: 1000px;height: 632px;
+				margin: 0 auto;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;			
+			}
+			#content>div{background-color: #E8E8E8;}
+			.top_height{
+				height: 377px;
+			}
+			.bottom_height{height: 233px;}
+			#content>div:first-child{flex: 0 0 60.9%;}
+			#content>div:nth-child(2){flex: 0 0 38.1%;}
+			#content>div:nth-child(3){flex: 0 0 37.7%}
+			#content>div:nth-child(4),#content>div:nth-child(5),#content>div:nth-child(6){flex:0 0 19.8%;}
+			#top_box1{
+				position: relative;
+				float: left;
+			}
+			#box1{
+				position: absolute;
+				width: 245px;
+				height: 243px;
+				top: 55px;
+				left: 65px;
+			}
+			#top_box1 .p1{
+				font-size: 32px;
+				color: #333;
+			}
+			#top_box1 .p2{
+				font-size: 12px;
+				color: #666666;
+				margin-bottom: 24px;
+			}
+			#top_box1 p{
+				font-size:24px ;
+				color: #0AA1ED;
+				margin-bottom: 12px;
+			}
+			#top_box1 a{
+				display: block;
+				width: 130px;
+				height: 40px;
+				background: #0AA1ED;
+				line-height: 40px;
+				text-align: center;
+				color: #FFFFFF;
+				border-radius: 4px;
+			}
+			#top_box1 img{
+				position: absolute;
+				width: 390px;
+				height: 300px;
+				display: block;
+				top: 56px;
+				right: 30px;	
+				transition: transform 0.5s linear;
+			}
+			#top_box1 img:hover{
+				transform:scale(1.05,1.05);
+			}
+			#top_box2{
+				position: relative;
+				float: left;
+			}
+			#top_box2 img{
+				position: absolute;
+				display: block;
+				width: 292px;
+				height: 232px;
+				bottom: 10px;
+				right: 25px;
+				transition: transform 0.5s linear;
+			}
+			#top_box2 img:hover{
+				transform:scale(1.05,1.05);
+			}
+			#box2{
+				position: absolute;
+				top: 63px;
+				left: 24px;
+				width: 253px;
+				height: 221px;
+			}
+			#box2>#p1{
+				font-size: 32px;
+				color: #333333;
+			}
+			#box2>#p2{
+				font-size: 12px;
+				color: #666666;
+				margin-bottom: 24px;
+			}
+			#box2>#p3{
+				font-size: 24px;
+				color: #0AA1ED;
+				margin-bottom: 12px;
+			}
+			#box2 a{
+				display: block;
+				width: 130px;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				font-size: 16px;
+				color: #FFFFFF;
+				background-color: #0AA1ED;
+				border-radius: 4px;
+			}
+			#bottom_box1{
+				position: relative;
+				float: left;
+			}
+			#bottom_box1 img{
+				width: 198px;
+				height: 136px;
+				position: absolute;
+				top: 40px;
+				right: 17px;
+				transition: transform 0.5s linear;
+			}
+			#bottom_box1 img:hover{
+				transform:scale(1.05,1.05);
+			}
+			#content>div:nth-child(3)>div{
+				position: absolute;
+				width: 149px;
+				height: 119px;
+				top: 21px;
+				left: 33px;
+			}
+			#content>div:nth-child(3)>div #p1{
+				font-size: 22px;
+				color: #333;
+			}
+			#content>div:nth-child(3)>div #p2{
+				font-size: 22px;
+				color: #0AA1ED;
+				margin-bottom: 12px;
+			}
+			#content>div:nth-child(3)>div a{
+				display: block;
+				width: 130px;
+				height: 40px;
+				background-color: #0AA1ED;
+				font-size: 16px;
+				color: #FFFFFF;
+				line-height: 40px;
+				text-align: center;
+				border-radius: 4px;
+			}
+			#content>div:nth-child(4){
+				position: relative;
+				float: left;
+			}
+			#bottom_box2 img{
+				display: block;
+				width: 198px;
+				height: 136px;
+				transition: transform 0.5s linear;
+			}
+			#bottom_box2 img:hover{
+				transform:scale(1.05,1.05);
+			}
+			#content>div:nth-child(4)>#p1{
+				font-size: 12px;
+				color: #333;
+				text-align: center;
+			}
+			#content>div:nth-child(4)>#p2{
+				font-size: 24px;
+				color: #0AA1ED;
+				margin-top: 5px;
+				text-align: center;
+			}
+			#content>div:nth-child(4)>a{
+				position: absolute;
+				display: block;
+				width: 102px;
+				height: 28px;
+				background-color: #0AA1ED;
+				color: #FFFFFF;
+				font-size: 14px;
+				line-height:28px;
+				text-align: center;
+				bottom: 10px;
+				left: 51px;
+				border-radius: 4px;
+			}
+			#content>div:nth-child(5){
+				position: relative;
+				float: left;
+			}
+			#content>div:nth-child(5)>#p1{
+				font-size: 12px;
+				color: #333333;
+				text-align: center;
+			}
+			#content>div:nth-child(5)>#p2{
+				font-size: 24px;
+				color: #0AA1ED;
+				text-align: center;
+				margin-top:5px ;
+			}
+			#content>div:nth-child(5)>a{
+				position: absolute;
+				display: block;
+				width: 102px;
+				height: 28px;
+				line-height: 28px;
+				text-align: center;
+				color: #FFFFFF;
+				background-color: #0AA1ED;
+				font-size: 14px;
+				bottom: 10px;
+				left: 51px;
+				border-radius: 4px;
+			}
+			#content>div:nth-child(5)>img{
+				transition: transform 0.5s linear;
+			}
+			#content>div:nth-child(5)>img:hover{
+				transform:scale(1.05,1.05);
+			}
+		    #content>div:nth-child(6){
+				position: relative;
+				float: left;
+			}
+			#content>div:nth-child(6)>img{
+				transition: transform 0.5s linear;
+			}
+			#content>div:nth-child(6)>img:hover{
+				transform:scale(1.05,1.05);
+			}
+			#content>div:nth-child(6)>#p1{
+				font-size: 12px;
+				color: #333;
+				text-align: center;
+			}
+			#content>div:nth-child(6)>#p2{
+				font-size: 24px;
+				color: #0AA1ED;
+				text-align: center;
+			}
+			#content>div:nth-child(6)>a{
+				display: block;
+				width: 102px;
+				height: 28px;
+				line-height: 28px;
+				text-align: center;
+				color: #FFFFFF;
+				background-color: #0AA1ED;
+				bottom: 10px;
+				left: 51px;
+				position: absolute;
+				border-radius: 4px;
+			}
+			/* 学子商城底部图标 */
+			#foot_bottom{
+				width: 1004px;height: 82px;
+				margin: 0 auto;
+				color: #666;
+				font-size: 12px;
+				background-color: #F5F5F5;
+				padding: 43px 0px 73px 0px;
+			}
+			#foot_bottom>ul{
+				display: flex;
+				list-style: none;
+				justify-content: space-around;
+				text-align: center;	
+			}
+			/* 页面底部样式 */
+			#footer{
+				width: 1000px;
+				margin: 0 auto;
+				/* border: 1px solid #FF0000; */
+				display: flex;
+			}
+			#footer>div{
+				flex: 0 0 33.333%;
+			}
+			.center>div{
+				display: flex;
+				text-align: center;
+			}
+			.center>div>ul{
+				list-style: none;
+				flex: 0 0 33.333%;
+			}
+			.center>div>ul li{
+				padding: 5px;
+			}
+			.center>div>ul li h3{
+				font-size: 14px;
+				color: #333333;
+			}
+			.center>div>ul li a{
+				font-size: 12px;
+				color: #808080;
+			}
+			.right1>div{
+				display: flex;
+				justify-content:space-around;
+				margin-left: 50px;
+			}
+			.right1>div>div{
+				flex: 0 0 40%;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 头部导航栏 -->
+		<div id="harder">
+			<div>
+				<img src="img/logo.png">
+			</div>
+			<div>
+				<input type="text" placeholder="请输入您要搜索的内容">
+			</div>
+			<div>
+				<ul>
+					<li><img src="img/care.png" ></li>
+					<li><p>|</p></li>
+					<li><img src="img/order.png" ></li>
+					<li><p>|</p></li>
+					<li><img src="img/shop_car1.png" ></li>
+					<li><p>|</p></li>
+					<li><a href="#">注册</a></li>
+					<li><p>|</p></li>
+					<li><a href="#">登录</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- 首页轮播图 -->
+		<div id="foot_btn">
+			<img id="image" src="./img/1.png">
+			<button onclick="leftbtn()" class="left"></button>
+			<button onclick="rightbtn()" class="right"></button>
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		<!-- 商品导航栏 -->
+		<div id="content">
+			<div id="top_box1" class="top_height">
+				<div id="box1">
+					<p class="p1">Apple MacBook Air系列</p>
+					<p class="p2">酷睿双核i5处理器|256GB SSD|8GB内存|英特尔HD显卡620含共享显卡内存</p>
+					<p>￥6988.00</p>
+					<a href="#">查看详情</a>
+				</div>
+				<img src="img/study_computer_img1.png" >
+			</div>
+			<div id="top_box2" class="top_height">
+				<div id="box2">
+					<p id="p1">小米Air 金属超轻薄</p>
+					<p id="p2">酷睿双核i5处理器|512GB SSD|2GB内存|英特尔HD独立显卡</p>
+					<p id="p3">￥3488.00</p>
+					<a href="#">查看详情</a>
+				</div>
+				<img src="img/study_computer_img2.png" alt="">
+			</div>
+			<div id="bottom_box1" class="bottom_height">
+				<div id="box3">
+					<p id="p1">联想E480C 轻薄系列</p>
+					<p id="p2">￥5399.00</p>
+					<a href="#">查看详情</a>
+				</div>
+				<img src="img/study_computer_img3.png" >
+			</div>
+			<div id="bottom_box2" class="bottom_height">
+				<img src="img/study_computer_img4.png" >
+				<p id="p1">华硕RX310 金属超极本</p>
+				<p id="p2">￥4966.00</p>
+				<a href="#">查看详情</a>
+			</div>
+			<div id="bottom_box3" class="bottom_height">
+				<img src="img/study_computer_img5.png" >
+				<p id="p1">联想小新700 电竞版游戏本</p>
+				<p id="p2">￥6299.00</p>
+				<a href="#">查看详情</a>		
+			</div>
+			<div id="bottom_box4" class="bottom_height">
+				<img src="img/study_computer_img3.png" >
+				<p id="p1">戴尔灵越燃7000 轻薄窄边</p>
+				<p id="p2">￥3488.00</p>
+				<a href="#">查看详情</a>
+			</div>
+		</div
+		<!-- 底部图标导航栏 -->
+		<div id="foot_bottom">
+			<ul>
+				<li>
+					<img src="img/icon1.png" >
+					<p>品质保障</p>
+				</li>
+				<li>
+					<img src="img/icon2.png" alt="">
+					<p>私人定制</p>
+				</li>
+				<li>
+					<img src="img/icon3.png" alt="">
+					<p>学员特供</p>
+				</li>
+				<li>
+					<img src="img/icon4.png" >
+					<p>专属定制</p>
+				</li>
+			</ul>
+		</div>
+		<!-- 页面底部 -->
+		<div id="footer">
+			<div>
+				<img src="./img/logo.png" alt="">
+				<img src="./img/footerFont.png" alt="">
+			</div>
+		
+			<div class="center">
+				<div>
+					<ul>
+						<li>
+							<h3>买家帮助</h3>
+						</li>
+						<li>
+							<a href="#">新手指南</a>
+						</li>
+						<li>
+							<a href="#">服务保障</a>
+						</li>
+						<li>
+							<a href="#">常见问题</a>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<h3>商家帮助</h3>
+						</li>
+						<li>
+							<a href="#">商家入驻</a>
+						</li>
+						<li>
+							<a href="#">商家平台</a>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<h3>关于我们</h3>
+						</li>
+						<li>
+							<a href="#">关于达内</a>
+						</li>
+						<li>
+							<a href="#">联系我们</a>
+						</li>
+						<li>
+							<img src="./img/sinablog.png" alt="">
+							<img src="./img/wechat.png" alt="">
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="right1">
+				<div>
+					<div>
+						<p>学子商城客户端</p>
+						<img src="./img/ios.png" >
+						<img src="./img/android.png" alt="">
+					</div>
+					<div>
+						<img src="img/erweima.png" alt="">
+					</div>	
+				</div>			
+			</div>
+		</div>
+	</body>
+</html>
